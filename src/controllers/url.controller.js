@@ -76,5 +76,4 @@ res.status(204).json({
         })
     }}
 
-
 module.exports = { shortUrl, redirectURL, deleteUrl }
