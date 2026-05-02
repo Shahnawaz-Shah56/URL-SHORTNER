@@ -3,6 +3,18 @@ const app = require('./src/app');
 const connectDB = require('./src/db/db');
 
 connectDB()
-    app.listen(3000, () => {
-        console.log('Server running on port 3000 ✅')
+    app.listen(PORT, '0.0.0.0', () => {
+        console.log('Server running on port @{PORT} ✅')
     })
+
+
+    
+const PORT = process.env.PORT || 3000
+
+connectDB().then(() => {
+    app.listen(PORT, '0.0.0.0', () => {
+        console.log(`Server running on port ${PORT} ✅`)
+    })
+}).catch((err) => {
+    console.log('DB connection failed ❌', err)
+})
